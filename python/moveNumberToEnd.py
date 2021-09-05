@@ -17,6 +17,10 @@ def moveElementToEnd(array, toMove):
             array.append(toMove)
     return array
 
-array = []
-toMove = 3
+array = [2, 1, 2, 2, 2, 7, 4, 2]
+toMove = 2
 print(moveElementToEnd(array, toMove))
+
+
+
+
