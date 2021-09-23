@@ -69,8 +69,4 @@
 # Args: [["Ninja", "100000", "Fortnite", "Pokimane", "40000", "Valorant"], ["StreamerOffline", "Ninja", "Fortnite", "ViewsInCategory", "Fortnite", "TopStreamer"]]
 # Expected result: ["0", "Pokimane"]
 
-def streamer(streamer_list, command_list):
-    streamer_dict = {}
-    result = []
-    for command in command_list:
-         
+
