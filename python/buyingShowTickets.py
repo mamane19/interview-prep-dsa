@@ -11,8 +11,11 @@ def waitingTime(tickets, p):
     return sum([min(tickets[i], tickets[p]) if i<=p else min(tickets[i], tickets[p] - 1) for i in range(len(tickets))])
 
 
-print(waitingTime([2,6,3,4,5],2))
+# print(waitingTime([2,6,3,4,5],2))
 # print(waitingTime2([2,6,3,4,5],2))
+
+if __name__ == "__main__":
+    print(waitingTime([2,6,3,4,5], 2))
 
 
 
