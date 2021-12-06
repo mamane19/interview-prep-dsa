@@ -6,27 +6,30 @@
 import requests
 import bs4
 import time
-import sys
 
-
-base_url = "https://www.amazon.com/best-sellers-books-Amazon/zgbs/books/ref=zg_bs_pg_1?_encoding=UTF8&pg=1"
+base_url = "https://www.amazon.com/best-sellers-books-Amazon/zgbs/books/ref=zg_bs_pg_1?_encoding=UTF8&pg={}"
 start_time = time.time()
-
 
 
 def soup_it(url):
     """
     Returns a soup object from the url
     """
+    # we are going to make the program run as long as the status is not 200
     response = requests.get(url)
-    if response.status_code == 200:
-        return bs4.BeautifulSoup(response.text, "lxml")
-    else:
-        print("Error: {}".format(response.status_code))
-        sys.exit(1)
+    while True:
+        if response.status_code == 200:
+            break
+        else:
+            # print("The request did not go through. Please try again later.\n")
+            print("\nOops, we have a {} error".format(response.status_code))
+            print("Retrying...\n")
+            time.sleep(2)
+            response = requests.get(url)
+    return bs4.BeautifulSoup(response.text, "html.parser")
 
 
-def books_data(s):
+def books_data(soup):
     """
     Returns a list of tuples with the title, price and reviews of the books
     """
@@ -34,11 +37,7 @@ def books_data(s):
         print("Be Patient. It is taking a while to load the data...")
         time.sleep(2)
 
-    if len(s.select(".zg-item-immersion")) == 0:
-        print("The request did not go through. Please try again later.\n")
-        sys.exit(1)
-
-    books = s.select(".zg-item-immersion")
+    books = soup.select(".zg-item-immersion")
     #    title = s.select(".p13n-sc-truncate")[0].text
     #    price = s.select(".p13n-sc-price")[0].text
     books_list = []
@@ -80,23 +79,39 @@ def get_10_most_expensive_books(most_popular_books):
     )[:10]
     return most_expensive_books
 
+
 def main():
     print("Scrapping...")
-    # start_time = time.time()
-    soup = soup_it(base_url)
-    books_list = books_data(soup)
-    most_popular_books = get_most_popular_books(books_list)
-    most_expensive_books = get_10_most_expensive_books(most_popular_books)
-    print(
-        "Scrapping completed in {} seconds".format((time.time() - start_time).__round__(2))
-    )
+    print("It may take a while to load the data...")
+    # get both pages
+    page_1 = soup_it(base_url.format(1))
+    page_2 = soup_it(base_url.format(2))
+    # get the data from both pages
+    books_list_1 = books_data(page_1)
+    books_list_2 = books_data(page_2)
+    # get the most popular books from both pages
+    most_popular_books1 = get_most_popular_books(books_list_1)
+    most_popular_books2 = get_most_popular_books(books_list_2)
+
+    # print(most_popular_books1)
     # print("\n")
-    # print(books_list)
-    # print(most_popular_books)
+    # print(most_popular_books2)
+
+    # get the 10 most expensive books among the most popular books from both pages
+    most_expensive_books = get_10_most_expensive_books(
+        most_popular_books1 + most_popular_books2
+    )
+    print(
+        "\nScrapping completed in {} seconds".format(
+            (time.time() - start_time).__round__(2)
+        )
+    )
     print("The 10 most expensive books among the most popular are:")
     books = []
     for book in most_expensive_books:
-        books.append("{} - {} - {}".format(book["title"], book["price"], book["reviews"]))
+        books.append(
+            "{} - {} - {}".format(book["title"], book["price"], book["reviews"])
+        )
     print("\n".join(books))
     print("\n")
 
