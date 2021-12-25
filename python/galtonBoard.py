@@ -26,12 +26,3 @@ def uniquePaths(M, N):
           for j in range(1, N):
                dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
      return dp[-1][-1]
-
-
-M = 4
-N = 3
-print(uniquePaths(M, N))
-
-M = 2
-N = 2
-print(uniquePaths(M, N))
