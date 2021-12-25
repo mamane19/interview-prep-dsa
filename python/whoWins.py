@@ -28,7 +28,3 @@ def canWin(nums):
           if nums[i] > nums[i + 1]:
                return True
      return False
-
-
-nums = [1, 2, 3]
-print(canWin(nums))
