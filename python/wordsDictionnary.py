@@ -28,10 +28,3 @@ def wordBreak(s, wordDict):
      return dp[-1]
 
 
-s = "pizzaplanet"
-wordDict = ["plane", "pizza"]
-print(wordBreak(s, wordDict))
-
-s = "thedailybyte"
-wordDict = ["the", "daily", "byte"]
-print(wordBreak(s, wordDict))

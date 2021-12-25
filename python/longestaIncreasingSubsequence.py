@@ -18,7 +18,3 @@ def longestIncreasingSubsequence(nums):
                if nums[i] > nums[j]:
                     dp[i] = max(dp[i], dp[j] + 1)
      return max(dp)
-
-
-nums = [1, 9, 7, 4, 7, 13]
-print(longestIncreasingSubsequence(nums))
