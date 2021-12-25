@@ -33,9 +33,4 @@ def canCross(stones):
                     dp[j + stones[i]].add(j)
                if j - stones[i] in dp:
                     dp[j - stones[i]].add(j)
-     return stones[-1] in dp and len(dp[stones[-1]]) > 0
-
-
-
-stones = [0, 1, 2, 4]
-print(canCross(stones))
+     return stones[-1] in dp and len(dp[stones[-1]]) > 0 
