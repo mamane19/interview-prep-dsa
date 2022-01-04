@@ -59,7 +59,8 @@ def possible_done_chores(chores, sleep_time, chores_time, total_time):
             chores_done.append(chore[0])
             chores_done_time += chore[1]
         else:
-            # if the time required by the chore is greater than the time we have for chores we break
+            # if the time required by the chore is greater than the time we have for chores we break out of the loop
+            # and return the list of chores done
             break
 
     return chores_done
