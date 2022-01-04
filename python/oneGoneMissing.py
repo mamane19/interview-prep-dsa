@@ -12,7 +12,6 @@
 
 
 def find_missing_number(nums):
-     # Write your code here
      nums.sort()
      for i in range(len(nums)):
           if nums[i] != i:
