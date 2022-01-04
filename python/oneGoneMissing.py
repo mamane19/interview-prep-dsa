@@ -25,3 +25,7 @@ print(find_missing_number(nums))
 
 nums = [6, 3, 1, 2, 0, 5]
 print(find_missing_number(nums))
+
+
+nums=[0,1,2,3,4,6,7,8,9,10]
+print(find_missing_number(nums))
