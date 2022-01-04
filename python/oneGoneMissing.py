@@ -1,5 +1,5 @@
-# This question is asked by Amazon. 
-# Given an array that contains all distinct values from zero through N except one number, 
+# This question is asked by Amazon.
+# Given an array that contains all distinct values from zero through N except one number,
 # return the number that is missing from the array.
 
 # Ex: Given the following array nums…
@@ -12,11 +12,11 @@
 
 
 def find_missing_number(nums):
-     nums.sort()
-     for i in range(len(nums)):
-          if nums[i] != i:
-               return i
-     return len(nums)
+    nums.sort()
+    for i in range(len(nums)):
+        if nums[i] != i:
+            return i
+    return len(nums)
 
 
 nums = [1, 4, 2, 0]
