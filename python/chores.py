@@ -52,20 +52,19 @@ def possible_done_chores(chores, sleep_time, chores_time, total_time):
 
     chores_done = []
     chores_done_time = 0
-    while chores_done_time < chores_time:
-        for chore in chores:
-            # we sort the chores by the time required by each chore from the smallest to the largest
-            chores.sort(key=lambda x: x[1])
-            # we check if the time required by the chore is less than the time we have for chores
-            if chore[1] <= (chores_time - chores_done_time):
-                # if the time required by the chore is less than the time we have for chores we add it to the list
-                # of chores done and we add the time required by the chore to the time we have for chores
-                chores_done.append(chore[0])
-                chores_done_time += chore[1]
-            else:
-                # if the time required by the chore is greater than the time we have for chores we break out of the
-                # loop and move on to the next chore
-                break
+    for chore in chores:
+        # we sort the chores by the time required by each chore from the smallest to the largest
+        chores.sort(key=lambda x: x[1])
+        # we check if the time required by the chore is less than the time we have for chores
+        if chore[1] <= (chores_time - chores_done_time):
+            # if the time required by the chore is less than the time we have for chores we add it to the list
+            # of chores done and we add the time required by the chore to the time we have for chores
+            chores_done.append(chore[0])
+            chores_done_time += chore[1]
+        else:
+            # if the time required by the chore is greater than the time we have for chores we break out of the
+            # loop and move on to the next chore
+            break
             
     return chores_done
 
