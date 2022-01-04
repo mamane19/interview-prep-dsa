@@ -21,15 +21,3 @@ def locker_walk(n):
         return 1
     else:
         return locker_walk(n-1) + locker_walk(n-2)
-
-
-print(locker_walk(1)) 
-print(locker_walk(2)) 
-print(locker_walk(3)) 
-print(locker_walk(4)) 
-print(locker_walk(5)) 
-print(locker_walk(6))
-print(locker_walk(7))
-print(locker_walk(8))
-print(locker_walk(9))
-print(locker_walk(10))
