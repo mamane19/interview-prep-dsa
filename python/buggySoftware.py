@@ -13,14 +13,3 @@
 # isBadRelease(5) // returns true.
 # isBadRelease(4) // returns true.
 # return 4.
-
-
-def find_bad_release(n):
-     for i in range(n):
-          if is_bad_release(i):
-               return i
-     return n
-
-
-def is_bad_release(release_number):
-     
