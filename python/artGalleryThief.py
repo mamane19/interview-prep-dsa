@@ -28,7 +28,7 @@ def maximize_value_iter(W, weights, values):
     # Write your code here
     if W == 0 or len(weights) == 0:
         return 0
-    dp = [[0 for i in range(W + 1)] for j in range(len(weights))]
+    dp = [[0 for _ in range(W + 1)] for _ in range(len(weights) + 1)]
     for i in range(len(weights)):
         for j in range(W + 1):
             if j < weights[i]:
