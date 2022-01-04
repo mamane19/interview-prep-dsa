@@ -13,3 +13,16 @@
 # isBadRelease(5) // returns true.
 # isBadRelease(4) // returns true.
 # return 4.
+
+# TODO: Write the code to find the release number that your bug was shipped in.
+# TODO: The following is just a placeholder for your code.
+def find_bad_release(n):
+    bad_release = 0
+    for i in range(n):
+        if is_bad_release(i):
+            bad_release = i
+    return bad_release
+
+
+def is_bad_release(release_number):
+     pass
