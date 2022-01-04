@@ -1,13 +1,12 @@
 # Given a binary tree, return a list containing its inorder traversal without using recursion.
 
 # Ex: Given the following tree…
-
 #       2
 #      / \
 #     1   3
 # return [1, 2, 3]
-# Ex: Given the following tree…
 
+# Ex: Given the following tree…
 #         2
 #        / \
 #       1   7
