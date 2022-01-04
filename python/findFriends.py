@@ -19,20 +19,21 @@
 
 
 def count_friends(friends):
-    # Write your code here
-    count = 0
-    for i in range(len(friends)):
-        for j in range(len(friends[i])):
-            if friends[i][j] == 1:
-                count += 1
-    return count
+     
+     # Write your code here
+     count = 0
+     for i in range(len(friends)):
+          for j in range(len(friends[i])):
+               if friends[i][j] == 1:
+                    count += 1
+     return count
 
 
-# friends = [
-#     [1, 1, 0],
-#     [1, 1, 0],
-#     [0, 0, 1]
-# ]
+friends = [
+    [1, 1, 0],
+    [1, 1, 0],
+    [0, 0, 1]
+]
 
 
-# print(count_friends(friends))
+print(count_friends(friends))
