@@ -46,9 +46,7 @@
 
 
 def possible_done_chores(chores, sleep_time, chores_time, total_time):
-    # we already have the time for the chores so we need to check if we can do the chores in the time we have
-    # by checking how many time is required by each chore. Then we will check the chores that can add up to
-    # the time we have for chores and return the chores that can be done.
+
 
     chores_done = []
     chores_done_time = 0
