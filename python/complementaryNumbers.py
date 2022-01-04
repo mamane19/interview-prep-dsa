@@ -9,7 +9,6 @@
 
 
 def find_complement(number):
-    # Write your code here
     binary = bin(number)
     binary = binary[2:]
     print(binary) # 11011 -> 00100 -> 4, so return 4 for 27. 
