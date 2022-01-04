@@ -23,19 +23,38 @@ def maximize_value(W, weights, values):
         return max(values[0] + maximize_value(W - weights[0], weights[1:], values[1:]), maximize_value(W, weights[1:], values[1:]))
 
 
+# the itterative solution | none optimal
+def maximize_value_iter(W, weights, values):
+    # Write your code here
+    if W == 0 or len(weights) == 0:
+        return 0
+    dp = [[0 for i in range(W + 1)] for j in range(len(weights))]
+    for i in range(len(weights)):
+        for j in range(W + 1):
+            if j < weights[i]:
+                dp[i][j] = dp[i - 1][j]
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1]
+                               [j - weights[i]] + values[i])
+    return dp[len(weights) - 1][W]
+
+
 W = 10
 weights = [4, 1, 3]
 values = [4, 2, 7]
 print(maximize_value(W, weights, values))
+print(maximize_value_iter(W, weights, values))
 
 
 W = 5
 weights = [2, 4, 3]
 values = [3, 7, 2]
 print(maximize_value(W, weights, values))
+print(maximize_value_iter(W, weights, values))
 
 
 W = 7
 weights = [1, 3, 4]
 values = [3, 5, 6]
 print(maximize_value(W, weights, values))
+print(maximize_value_iter(W, weights, values))
