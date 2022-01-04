@@ -45,42 +45,39 @@
 #  [Cleaning, Cooking, Taking out garbage, Making bed]
 
 
-def possible_chores(total_time, sleep_time, chores_time):
-         # Write your code here
-    chores = []
-    total_chores = 0
-    total_time = total_time.split(":")
-    total_time = int(total_time[0]) * 60 + int(total_time[1])
-    sleep_time = sleep_time.split(":")
-    sleep_time = int(sleep_time[0]) * 60 + int(sleep_time[1])
-    chores_time = chores_time.split(":")
-    chores_time = int(chores_time[0]) * 60 + int(chores_time[1])
-    if total_time < sleep_time:
-        return chores
-    if total_time > sleep_time:
-        total_chores = total_time - sleep_time
-    if total_chores < chores_time:
-        return chores
-    if total_chores > chores_time:
-        total_chores = chores_time
-    chores = ['Cleaning', 'Laundry', 'Shopping', 'Cooking', 'Taking out garbage', 'Making bed']
-    chores = sorted(chores, key=lambda x: len(x))
-    return chores[:total_chores]
+def possible_done_chores(chores, sleep_time, chores_time, total_time):
+    # we already have the time for the chores so we need to check if we can do the chores in the time we have
+    # by checking how many time is required by each chore. Then we will check the chores that can add up to
+    # the time we have for chores and return the chores that can be done.
+
+    chores_done = []
+    chores_done_time = 0
+    while chores_done_time < chores_time:
+        for chore in chores:
+            # we sort the chores by the time required by each chore from the smallest to the largest
+            chores.sort(key=lambda x: x[1])
+            # we check if the time required by the chore is less than the time we have for chores
+            if chore[1] <= (chores_time - chores_done_time):
+                # if the time required by the chore is less than the time we have for chores we add it to the list
+                # of chores done and we add the time required by the chore to the time we have for chores
+                chores_done.append(chore[0])
+                chores_done_time += chore[1]
+            else:
+                # if the time required by the chore is greater than the time we have for chores we break out of the
+                # loop and move on to the next chore
+                break
+            
+    return chores_done
 
 
-print(possible_chores("5:00", "3:00", "2:00"))
+chores = [
+    ["Cleaning", 30],
+    ["Laundry", 120],
+    ["Shopping", 60],
+    ["Cooking", 30],
+    ["Taking out garbage", 30],
+    ["Making bed", 30]
+]
 
 
-# chore = [
-#     ['Cleaning', 30],
-#     ['Laundry', 2],
-#     ['Shopping', 1],
-#     ['Cooking', 30],
-#     ['Taking out garbage', 30],
-#     ['Making bed', 30]
-# ]
-
-# sleep = 3
-# chores_time = 2
-
-# print(chores(chore, sleep, chores_time))
+print(possible_done_chores(chores, 3, 120, 5))
