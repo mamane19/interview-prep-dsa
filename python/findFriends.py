@@ -28,11 +28,11 @@ def count_friends(friends):
     return count
 
 
-friends = [
-    [1, 1, 0],
-    [1, 1, 0],
-    [0, 0, 1]
-]
+# friends = [
+#     [1, 1, 0],
+#     [1, 1, 0],
+#     [0, 0, 1]
+# ]
 
 
-print(count_friends(friends))
+# print(count_friends(friends))
