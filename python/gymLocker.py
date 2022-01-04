@@ -15,7 +15,6 @@
 
 
 def locker_walk(n):
-         # Write your code here
     if n == 1:
         return 1
     elif n == 2:
