@@ -49,4 +49,4 @@ trie = Trie()
 trie.insert("programming")  # will insert "programming"
 print(trie.search("programming"))  # True
 print(trie.search("computer"))  # False
-print(trie.startsWith("program"))  # True
+print(trie.starts_with("program"))  # True

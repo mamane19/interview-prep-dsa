@@ -18,3 +18,6 @@ print(trie.search("computers"))  # True
 print(trie.search("Shinigami"))  # True
 print(trie.search("Progate"))  # True
 print(trie.search("Python"))  # False
+
+print(trie.starts_with("Pro"))  # True
+print(trie.starts_with("Ali"))  # False
