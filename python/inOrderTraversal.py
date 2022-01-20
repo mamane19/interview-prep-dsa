@@ -21,7 +21,6 @@ class Node:
         self.left = None
         self.right = None
 
-
 def inorder_traversal(root):
     if root is None:
         return []
