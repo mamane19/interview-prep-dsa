@@ -14,7 +14,6 @@
 
 
 def maximize_value(W, weights, values):
-    # Write your code here
     if W == 0 or len(weights) == 0:
         return 0
     if W < weights[0]:
