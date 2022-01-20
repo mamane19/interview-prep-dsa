@@ -3,6 +3,3 @@
 
 def find_missing_numbers(nums):
     return list(set(range(min(nums), max(nums) + 1)) - set(nums))
-
-
-
