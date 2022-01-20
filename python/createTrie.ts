@@ -26,7 +26,7 @@ class Trie {
     let currentNode = this.root;
     for (let i = 0; i < word.length; i++) {
       const char = word[i];
-      if (!currentNode.children[char]) {
+      if (!currentNode.children.hasOwnProperty(char)) {
         currentNode.children[char] = new TrieNode({}, false);
       }
       currentNode = currentNode.children[char];
