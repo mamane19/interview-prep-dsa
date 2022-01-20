@@ -36,7 +36,7 @@ class Trie:
             node = node.children[char]
         return node.is_word
 
-    def startsWith(self, prefix):
+    def starts_with(self, prefix):
         node = self.root
         for char in prefix:
             if char not in node.children:
@@ -46,7 +46,7 @@ class Trie:
 
 
 trie = Trie()
-trie.insert("programming") # will insert "programming"
+trie.insert("programming")  # will insert "programming"
 print(trie.search("programming"))  # True
 print(trie.search("computer"))  # False
 print(trie.startsWith("program"))  # True
