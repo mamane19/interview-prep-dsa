@@ -31,8 +31,6 @@ def count_ways(n):
         return count_ways(n-1) + count_ways(n-2)
 
 # iterative solution
-
-
 def count_ways_iter(n):
     if n == 1:
         return 1
