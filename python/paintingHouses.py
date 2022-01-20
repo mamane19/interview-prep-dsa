@@ -26,9 +26,7 @@ def min_cost_to_paint_houses(costs):
 
 
 # TODO: Later
-# recursive solution 
-     
-     
+# recursive solution
 
 
 costs = [[1, 3, 5], [2, 4, 6], [5, 4, 3]]
