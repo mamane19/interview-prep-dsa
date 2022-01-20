@@ -47,6 +47,6 @@ class Trie:
 
 trie = Trie()
 trie.insert("programming")
-print(trie.search("programming"))
-print(trie.search("computer"))
-print(trie.startsWith("program"))
+print(trie.search("programming")) # True
+print(trie.search("computer")) # False
+print(trie.startsWith("program")) # True
