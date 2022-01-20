@@ -25,6 +25,7 @@
 def pathBetweenPoints(listOfPoints, startPoint, endPoint):
     visited = []
     path = []
+
     def find_shortest_path(current_point):
      #    print(current_point)
         if current_point == endPoint:
@@ -38,6 +39,7 @@ def pathBetweenPoints(listOfPoints, startPoint, endPoint):
                         return find_shortest_path(j)
         return "no path"
     return find_shortest_path(startPoint)
+
 
 listOfPoints = [
     {"name": "A", "connections": ["B", "C"]},
