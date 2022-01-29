@@ -4,6 +4,7 @@
 import sys
 import time
 
+
 def trackTime(func):
     def wrapper(*args, **kwargs):
         start = time.time()
@@ -12,6 +13,7 @@ def trackTime(func):
         return ("Time taken by function: {}".format(end - start))
     return wrapper
 
+
 @trackTime
 def sumOfSquares(n):
     sum = 0
@@ -19,12 +21,14 @@ def sumOfSquares(n):
         sum += i ** 2
     return sum
 
+
 @trackTime
 def sumOfCubes(n):
     sum = 0
     for i in range(1, n + 1):
         sum += i ** 3
     return sum
+
 
 if __name__ == "__main__":
     print(sumOfSquares(100))
@@ -42,11 +46,13 @@ def trackSpace(func):
         return ("Space taken by function: {}".format(end - start))
     return wrapper
 
+
 @trackSpace
 def factorial(n):
-    if n == 1:
+         if n == 1:
         return 1
     return n * factorial(n - 1)
+
 
 if __name__ == "__main__":
     print(factorial(100))
