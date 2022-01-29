@@ -1,6 +1,7 @@
 # Implemenet a basic measure of tracking the time taken by an algorithm
 
 
+import sys
 import time
 
 
@@ -35,9 +36,6 @@ if __name__ == "__main__":
 
 
 # Implement a basic measure of tracking the space used by an algorithm
-
-
-import sys
 
 
 def trackSpace(func):
