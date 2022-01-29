@@ -29,9 +29,9 @@
 #     return sum
 
 
-# if __name__ == "__main__":
-#     print(sumOfSquares(100))
-#     print(sumOfCubes(100))
+if __name__ == "__main__":
+    print(sumOfSquares(100))
+    print(sumOfCubes(100))
 
 
 # Implement a basic measure of tracking the space used by an algorithm
