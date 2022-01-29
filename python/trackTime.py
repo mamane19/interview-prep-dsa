@@ -4,13 +4,13 @@
 # import time
 
 
-# def trackTime(func):
-#     def wrapper(*args, **kwargs):
-#         start = time.time()
-#         func(*args, **kwargs)
-#         end = time.time()
-#         return ("Time taken by function: {}".format(end - start))
-#     return wrapper
+def trackTime(func):
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        func(*args, **kwargs)
+        end = time.time()
+        return ("Time taken by function: {}".format(end - start))
+    return wrapper
 
 
 @trackTime
