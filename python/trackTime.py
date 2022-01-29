@@ -1,7 +1,7 @@
 # Implemenet a basic measure of tracking the time taken by an algorithm
 
 
-# import time
+import time
 
 
 def trackTime(func):
