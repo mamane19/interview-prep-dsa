@@ -42,7 +42,6 @@ def trackSpace(func):
         return ("Space taken by function: {}".format(end - start))
     return wrapper
 
-
 @trackSpace
 def factorial(n):
     if n == 1:
