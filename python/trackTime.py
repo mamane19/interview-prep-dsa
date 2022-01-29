@@ -4,7 +4,6 @@
 import sys
 import time
 
-
 def trackTime(func):
     def wrapper(*args, **kwargs):
         start = time.time()
