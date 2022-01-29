@@ -21,7 +21,6 @@ def sumOfSquares(n):
         sum += i ** 2
     return sum
 
-
 @trackTime
 def sumOfCubes(n):
     sum = 0
