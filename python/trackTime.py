@@ -13,7 +13,6 @@ def trackTime(func):
         return ("Time taken by function: {}".format(end - start))
     return wrapper
 
-
 @trackTime
 def sumOfSquares(n):
     sum = 0
