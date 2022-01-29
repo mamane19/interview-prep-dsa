@@ -37,7 +37,6 @@ if __name__ == "__main__":
 
 # Implement a basic measure of tracking the space used by an algorithm
 
-
 def trackSpace(func):
     def wrapper(*args, **kwargs):
         sys.setrecursionlimit(10000)
