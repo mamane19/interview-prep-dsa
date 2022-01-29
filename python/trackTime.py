@@ -29,7 +29,6 @@ def sumOfCubes(n):
         sum += i ** 3
     return sum
 
-
 if __name__ == "__main__":
     print(sumOfSquares(100))
     print(sumOfCubes(100))
