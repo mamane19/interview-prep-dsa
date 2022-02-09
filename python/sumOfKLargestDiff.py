@@ -9,11 +9,8 @@
 def sumOfKLargestDiff(arr, k):
     if not arr or k < 1 or k > len(arr):
         return None
-
-    # sort the array
     arr.sort()
 
-    # return the sum of the k largest numbers in the array
     return sum(arr[-k:])
 
 
