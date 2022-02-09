@@ -1,20 +1,20 @@
 # write an algorithm that takes as an input a list. Return true if the each of the elements of the list occurs an odd number of times.
 # Otherwise, return false. the list can have duplicate elements.
 
-
+# O(n) time and O(n) space
 def oddOccurrences(arr):
     if not arr:
         return False
 
-    d = {}
+    seen = {}
     for i in range(len(arr)):
-        if arr[i] not in d:
-            d[arr[i]] = 1
+        if arr[i] not in seen:
+            seen[arr[i]] = 1
         else:
-            d[arr[i]] += 1
+            seen[arr[i]] += 1
 
-    for key in d:
-        if d[key] % 2 == 0:
+    for key in seen:
+        if seen[key] % 2 == 0:
             return False
     return True
 
