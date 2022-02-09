@@ -6,6 +6,9 @@
 #!/usr/bin/env python3
 
 
+# from audioop import reverse
+
+# O(nlog(n)) - Time | O(1) - Space
 def sumOfKLargestDiff(arr, k):
     if not arr or k < 1 or k > len(arr):
         return None
@@ -14,5 +17,8 @@ def sumOfKLargestDiff(arr, k):
     return sum(arr[-k:])
 
 
+# more optimal solution
+
+
 if __name__ == "__main__":
-    print(sumOfKLargestDiff([3, 7, 5, 12, 6], 3))
+    print(sumOfKLargestDiff([3, 7, 5, 12, 6], 4))
