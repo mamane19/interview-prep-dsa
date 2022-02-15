@@ -1,5 +1,5 @@
-# Given an integer n, your task is to reverse its digits in pairs. More formally, if n = d1d2d3d4... 
-# (where di is the ith digit in the decimal representation of n), then the answer should be d2d1d4d3.... 
+# Given an integer n, your task is to reverse its digits in pairs. More formally, if n = d1d2d3d4...
+# (where di is the ith digit in the decimal representation of n), then the answer should be d2d1d4d3....
 # If the number of digits is odd, the last digit should stay in the same position.
 
 # Example
@@ -27,25 +27,4 @@
 
 # An integer, obtained by reversing the digits of n in pairs
 
-#### I will do this later...
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# I will do this later...
