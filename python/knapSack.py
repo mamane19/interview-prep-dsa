@@ -54,4 +54,85 @@ if __name__ == "__main__":
     capacity = 20
     knapsack(weights, weightsValues, capacity)
 
-# Output:
+
+
+
+# class UndoableList:
+     #     def __init__(self):
+#         self.head = None
+#         self.tail = None
+#         self.undo_stack = []
+#         self.redo_stack = []
+#         self.size = 0
+
+#     def insert(self, v):
+#         if self.head is None:
+#             self.head = Node(v)
+#             self.tail = self.head
+#             self.undo_stack.append(v)
+#             self.redo_stack = []
+#             self.size += 1
+#         else:
+#             current = self.head
+#             while current.next is not None and current.next.value < v:
+#                 current = current.next
+#             if current.next is None:
+#                 current.next = Node(v)
+#                 self.tail = current.next
+#                 self.undo_stack.append(v)
+#                 self.redo_stack = []
+#                 self.size += 1
+#             else:
+#                 current.next = Node(v, current.next)
+#                 self.undo_stack.append(v)
+#                 self.redo_stack = []
+#                 self.size += 1
+
+#     def delete(self, v):
+#         if self.head is None:
+#             return
+#         else:
+#             if self.head.value == v:
+#                 self.head = self.head.next
+#                 self.undo_stack.append(v)
+#                 self.redo_stack = []
+#                 self.size -= 1
+#             else:
+#                 current = self.head
+#                 while current.next is not None and current.next.value != v:
+#                     current = current.next
+#                 if current.next is not None:
+#                     current.next = current.next.next
+#                     self.undo_stack.append(v)
+#                     self.redo_stack = []
+#                     self.size -= 1
+
+#     def undo(self):
+#         if len(self.undo_stack) > 0:
+#             self.redo_stack.append(self.head)
+#             self.head = self.undo_stack.pop()
+#             self.size -= 1
+#           #   print(self.head.value)
+
+#     def redo(self):
+#         if len(self.redo_stack) > 0:
+#             self.undo_stack.append(self.head)
+#             self.head = self.redo_stack.pop()
+#             self.size += 1
+#           #   print(self.head.value)
+
+#     def print_list(self):
+#         current = self.head
+#         while current is not None:
+#             print(current.value, end=' ')
+#             current = current.next
+#         print()
+
+
+# class Node:
+#     def __init__(self, value, next=None):
+#         self.value = value
+#         self.next = next
+
+#     def __str__(self):
+#         return str(self.value)
