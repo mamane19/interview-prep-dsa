@@ -66,42 +66,53 @@ class UndoableList:
     def delete(self, v):
         if self.head is None:
             return
-        else:
-            if self.head.value == v:
-                self.head = self.head.next
-                self.undo_stack.append(v)
-                self.redo_stack = []
-                self.size -= 1
-            else:
-                current = self.head
-                while current.next is not None and current.next.value != v:
-                    current = current.next
-                if current.next is not None:
-                    current.next = current.next.next
-                    self.undo_stack.append(v)
-                    self.redo_stack = []
-                    self.size -= 1
+        if self.head.value == v:
+            self.head = self.head.next
+            self.undo_stack.append(v)
+            self.redo_stack = []
+            self.size -= 1
+            return
+        current = self.head
+        while current.next is not None and current.next.value < v:
+            current = current.next
+        if current.next is None:
+            return
+        if current.next.value == v:
+            current.next = current.next.next
+            self.undo_stack.append(v)
+            self.redo_stack = []
+            self.size -= 1
+            return
+        return
 
     def undo(self):
-        if len(self.undo_stack) > 0:
-            self.redo_stack.append(self.head)
-            self.head = self.undo_stack.pop()
-            self.size -= 1
-          #   print(self.head.value)
+        if len(self.undo_stack) == 0:
+            return
+        # for i in range(len(self.undo_stack)):
+        #     self.redo_stack.append(self.undo_stack.pop())
+        # v = self.redo_stack.pop()
+        # self.delete(v)
+        v = self.undo_stack.pop()
+        self.redo_stack.append(v)
+        self.delete(v)
 
     def redo(self):
-        if len(self.redo_stack) > 0:
-            self.undo_stack.append(self.head)
-            self.head = self.redo_stack.pop()
-            self.size += 1
-          #   print(self.head.value)
+        if len(self.redo_stack) == 0:
+            return
+        v = self.redo_stack.pop()
+        self.undo_stack.append(v)
+        self.insert(v)
 
-    def print_list(self):
+    def __str__(self):
+        if self.head is None:
+            return "[]"
         current = self.head
-        while current is not None:
-            print(current.value, end=' ')
+        result = "["
+        while current.next is not None:
+            result += str(current.value) + ","
             current = current.next
-        print()
+        result += str(current.value) + "]"
+        return result
 
 
 class Node:
@@ -109,50 +120,44 @@ class Node:
         self.value = value
         self.next = next
 
-    def __str__(self):
-        return str(self.value)
-
-    # def __repr__(self):
-    #      return str(self.value)
-
 
 if __name__ == "__main__":
-    L = UndoableList()
-    L.insert(2)
-    L.insert(5)
-    L.insert(7)
-    L.print_list()
-    L.delete(5)
-    L.print_list()
-    L.undo()
-    L.print_list()
-    # L.redo()
-    # print(L)
-    # L.insert(6)
-    # print(L)
-    # L.undo()
-    # print(L)
-    # L.undo()
-    # print(L)
-    # L.redo()
-    # print(L)
-    # L.redo()
-    # print(L)
-    # L.insert(4)
-    # print(L)
-    # L.redo()
-    # print(L)
-    # L.delete(3)
-    # print(L)
-    # L.undo()
-    # print(L)
-    # L.undo()
-    # print(L)
-    # L.undo()
-    # print(L)
-    # L.redo()
-    # print(L)
-    # L.redo()
-    # print(L)
-    # L.redo()
-    # print(L)
+    l = UndoableList()
+    l.insert(2)
+    l.insert(5)
+    l.insert(7)
+    print(l)
+    l.delete(5)
+    print(l)
+    l.undo()
+    # print(l)
+    l.redo()
+    print(l)
+    l.insert(6)
+    print(l)
+    l.undo()
+    print(l)
+    # l.undo()
+    # print(l)
+    # l.redo()
+    # print(l)
+    # l.redo()
+    # print(l)
+    # l.insert(4)
+    # print(l)
+    # # l.redo()
+    # # print(l)
+    # l.delete(3)
+    # print(l)
+    # l.undo()
+    # print(l)
+    # l.undo()
+    # print(l)
+    # # l.undo()
+    # # print(l)
+    # l.redo()
+    # print(l)
+    # l.redo()
+    # print(l)
+    # l.redo()
+    # print(l)
